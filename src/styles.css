@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+/* tu vas utiliser bootstrap pour tout le monde
+  tu trouveras bootstrap dans node_modules
+*/
+@import 'bootstrap';
