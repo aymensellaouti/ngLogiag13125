@@ -2,6 +2,10 @@
 
 {{x()}} + {{y()}} = {{z()}} * 2 = {{doubleZ()}}
 
+ <div (click)="incrementCounter()">
+  {{ counter().value}} / {{doubleCounter()}}
+ </div>
+
 <div>
   <button (click)="increment(x)" class="btn btn-danger">
     X ++
