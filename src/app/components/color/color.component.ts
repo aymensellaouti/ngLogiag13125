@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-color',
@@ -15,14 +15,14 @@ export class ColorComponent {
   /**
    * L'attribut qui définit la couleur de la div
    */
-  color = this.defaultColor;
+  color = signal(this.defaultColor);
 
   /**
-   * Change la couleur de la div puis reset l'input
+   * Change la couleur de l'input puis reset l'input
    * @param newColorInput : HTMLInpuElement
    */
   changeColor(newColorInput: HTMLInputElement) {
-    this.color = newColorInput.value;
+    this.color.set(newColorInput.value);
     newColorInput.value = '';
   }
 
@@ -30,6 +30,6 @@ export class ColorComponent {
    * Réinitialiser la couelur de la div
    */
   reset() {
-    this.color = this.defaultColor;
+    this.color.set(this.defaultColor);
   }
 }
