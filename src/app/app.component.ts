@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { TwoComponent } from "./components/two/two.component";
-import { ColorComponent } from "./components/color/color.component";
+
+import { TtcComponent } from './signals/ttc/ttc.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TwoComponent, ColorComponent],
+  imports: [ TtcComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
