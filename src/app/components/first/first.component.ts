@@ -9,4 +9,21 @@ import { ViewEncapsulation } from '@angular/compiler';
   templateUrl: './first.component.html',
   styleUrl: './first.component.css'
 })
-export class FirstComponent {}
+export class FirstComponent {
+  name = 'aymen';
+  isHidden = false;
+  message = '';
+  constructor() {
+    // setInterval(() => {
+    //   //this.name = 'Jihane';
+
+    // }, 5000);
+  }
+
+  showHide() {
+    this.isHidden = !this.isHidden;
+  }
+  changeMessage(newMessage: string) {
+    this.message = newMessage;
+  }
+}
