@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   template: `
     <p>Je suis le second component</p>
   `,
-  styles: `[]`
+  styles: ``
 })
 export class SecondComponent {
 
