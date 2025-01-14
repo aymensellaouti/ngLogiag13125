@@ -1,4 +1,5 @@
-<p [hidden]="isHidden"> Bonjour {{ name }}</p>
+<p appHighlight [hidden]="isHidden"> Bonjour {{ name }}</p>
+<p [in]="'green'" [out]="'gold'" appHighlight [hidden]="isHidden"> Bonjour {{ name }}</p>
 <button (click)="showHide()" class="btn btn-danger">show / hide</button>
 <input #messageInput (change)="changeMessage(messageInput.value)" type="text" class="form-control">
 <p>Le contenu de l'input : {{ message }}</p>
