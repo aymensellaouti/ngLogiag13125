@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { SecondComponent } from "../second/second.component";
 import { ViewEncapsulation } from '@angular/compiler';
 import { HighlightDirective } from '../../directives/highlight.directive';
+import { RainbowDirective } from '../../directives/rainbow.directive';
 
 @Component({
   selector: 'app-first',
   standalone: true,
-  imports: [SecondComponent, HighlightDirective],
+  imports: [SecondComponent, HighlightDirective, RainbowDirective],
   templateUrl: './first.component.html',
   styleUrl: './first.component.css'
 })
