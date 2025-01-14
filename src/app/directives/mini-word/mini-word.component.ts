@@ -10,8 +10,11 @@ import { FormsModule } from '@angular/forms';
   imports: [NgStyle, FormsModule]
 })
 export class MiniWordComponent {
-  color = signal('red');
-  fontFamily = signal('garamond');
+  color = signal('#ff0000');
+  fontFamily = signal('verdana');
   size = signal(75);
+  fonts = signal([
+    'garamond', 'arial', 'verdana'
+  ])
   fontSize = computed(() => this.size() + 'px')
 }

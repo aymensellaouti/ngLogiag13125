@@ -13,7 +13,7 @@ import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CvItemComponent, CvComponent, NgStyleComponent, MiniWordComponent],
+  imports: [CvItemComponent, CvComponent, NgStyleComponent, MiniWordComponent, NamesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
