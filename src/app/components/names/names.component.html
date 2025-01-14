@@ -1,0 +1,17 @@
+<ol class="list-group">
+  @for (name of names(); track $index) {
+  <li class="list-group-item">
+    {{name}} @if (name.length >= 10) {
+      <i class="bi bi-heart"></i>
+    }
+  </li>
+  }
+  @empty {
+    <li class="list-group-item">
+      Je n'ai pas de noms à afficher
+    </li>
+  }
+</ol>
+<button (click)="emptyNames()" class="btn btn-danger">
+  make it empty
+</button>
