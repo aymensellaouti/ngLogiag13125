@@ -8,11 +8,12 @@ import { Cv } from './cv/model/cv';
 import { CvItemComponent } from "./cv/cv-item/cv-item.component";
 import { CvComponent } from "./cv/cv/cv.component";
 import { NgStyleComponent } from "./directives/ng-style/ng-style.component";
+import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CvItemComponent, CvComponent, NgStyleComponent],
+  imports: [CvItemComponent, CvComponent, NgStyleComponent, MiniWordComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
