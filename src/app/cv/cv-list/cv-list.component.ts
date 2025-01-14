@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { Cv } from '../model/cv';
 import { CvItemComponent } from "../cv-item/cv-item.component";
 
@@ -11,4 +11,5 @@ import { CvItemComponent } from "../cv-item/cv-item.component";
 })
 export class CvListComponent {
   cvs = input<Cv[]>([]);
+  forwardCv = output<Cv>();
 }

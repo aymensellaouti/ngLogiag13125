@@ -77,4 +77,8 @@ export class CvComponent {
       20
     ),
   ]);
+  selectedCv = signal<Cv | null>(null);
+  getSelectedCv(cv: Cv) {
+    this.selectedCv.set(cv);
+  }
 }
