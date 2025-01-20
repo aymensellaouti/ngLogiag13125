@@ -4,6 +4,8 @@ import { CvListComponent } from "../cv-list/cv-list.component";
 import { CvCardComponent } from "../cv-card/cv-card.component";
 import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
 import { BtcToUsdPipe } from '../../pipes/btc-to-usd.pipe';
+import { LoggerService } from '../../services/logger.service';
+import { SayHelloService } from '../../services/say-hello.service';
 
 @Component({
   selector: 'app-cv',
@@ -81,6 +83,14 @@ export class CvComponent {
   ]);
   selectedCv = signal<Cv | null>(null);
   today = new Date();
+  // helloService = new SayHelloService();
+  constructor(
+    private logger: LoggerService,
+    private helloService: SayHelloService
+  ) {
+    this.logger.log('cc je suis le cvComponent');
+    this.helloService.hello();
+  }
   getSelectedCv(cv: Cv) {
     this.selectedCv.set(cv);
   }
