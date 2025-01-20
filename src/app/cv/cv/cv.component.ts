@@ -1,4 +1,4 @@
-import { Component, inject, Signal, signal } from '@angular/core';
+import { Component, inject, OnDestroy, Signal, signal } from '@angular/core';
 import { Cv } from '../model/cv';
 import { CvListComponent } from "../cv-list/cv-list.component";
 import { CvCardComponent } from "../cv-card/cv-card.component";
@@ -26,7 +26,7 @@ import { EmbaucheComponent } from "../embauche/embauche.component";
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.css',
 })
-export class CvComponent {
+export class CvComponent implements OnDestroy {
   cvService = inject(CvService);
   cvs: Signal<Cv[]> = this.cvService.cvs;
   selectedCv = this.cvService.selectedCv;
@@ -41,5 +41,8 @@ export class CvComponent {
     this.logger.log('cc je suis le cvComponent');
     this.helloService.hello();
     this.toastr.info('Bienvenu dans notre CvTech :D');
+  }
+  ngOnDestroy(): void {
+    this.cvService.reserSelectedCv();
   }
 }

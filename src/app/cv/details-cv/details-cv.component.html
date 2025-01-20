@@ -7,7 +7,7 @@
         <h4 class="m-y-2">Cv {{ mycv.firstname }} {{ mycv.name }}</h4>
         <div class="d-flex justify-content-center">
           <img width="150px" height="150px" class="rounded-circle align-content-center"
-            src="assets/images/{{ mycv.path  }}" alt="{{ mycv.name }}" />
+            src="images/{{ mycv.path  }}" alt="{{ mycv.name }}" />
         </div>
         <div class="row">
           <div class="col-md-12">
@@ -36,6 +36,7 @@
             </table>
             <div class="d-flex justify-content-center">
               <button
+                (click)="deleteCv()"
                 class="btn btn-danger">
                 Delete
               </button>

@@ -3,11 +3,12 @@ import { Cv } from '../model/cv';
 import { DefaultImagePipe } from '../pipes/default-image.pipe';
 import { EmbaucheService } from '../services/embauche.service';
 import { ToastrService } from 'ngx-toastr';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cv-card',
   standalone: true,
-  imports: [DefaultImagePipe],
+  imports: [DefaultImagePipe, RouterLink],
   templateUrl: './cv-card.component.html',
   styleUrl: './cv-card.component.css',
 })

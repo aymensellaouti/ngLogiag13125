@@ -70,7 +70,7 @@ export class CvService {
     return this.#cvs.asReadonly();
   }
 
-  #selectedCv = signal<Cv | null>(null)
+  #selectedCv = signal<Cv | null>(null);
   get selectedCv() {
     return this.#selectedCv.asReadonly();
   }
@@ -90,7 +90,7 @@ export class CvService {
    * @returns Cv | null
    */
   findCvById(id: number): Cv | null {
-    return null;
+    return this.cvs().find((cv) => cv.id == id) ?? null;
   }
 
   /**
@@ -101,10 +101,21 @@ export class CvService {
    * @returns boolean
    */
   deleteCv(cv: Cv): boolean {
-    return false;
+    let isDeleted = false;
+    this.#cvs.update((cvs) => {
+      return cvs.filter((actualCv) => {
+        if (cv == actualCv) isDeleted = true;
+        return cv != actualCv;
+      });
+    });
+    // this.reserSelectedCv();
+    return isDeleted;
   }
 
   selectCv(cv: Cv) {
     this.#selectedCv.set(cv);
+  }
+  reserSelectedCv() {
+    this.#selectedCv.set(null);
   }
 }
