@@ -2,11 +2,13 @@ import { Component, signal } from '@angular/core';
 import { Cv } from '../model/cv';
 import { CvListComponent } from "../cv-list/cv-list.component";
 import { CvCardComponent } from "../cv-card/cv-card.component";
+import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
+import { BtcToUsdPipe } from '../../pipes/btc-to-usd.pipe';
 
 @Component({
   selector: 'app-cv',
   standalone: true,
-  imports: [CvListComponent, CvCardComponent],
+  imports: [CvListComponent, CvCardComponent, DatePipe, UpperCasePipe, BtcToUsdPipe, CurrencyPipe],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.css',
 })
@@ -45,7 +47,7 @@ export class CvComponent {
       'Julien',
       'Dev',
       '6666',
-      'rotating_card_profile2.png',
+      '',
       20
     ),
     new Cv(
@@ -66,7 +68,7 @@ export class CvComponent {
       'rotating_card_profile2.png',
       20
     ),
-    new Cv(7, 'Jobin', 'Yan', 'Dev', '999', 'rotating_card_profile3.png', 20),
+    new Cv(7, 'Jobin', 'Yan', 'Dev', '999', '        ', 20),
     new Cv(
       8,
       'Laliberté-Beaupré',
@@ -78,6 +80,7 @@ export class CvComponent {
     ),
   ]);
   selectedCv = signal<Cv | null>(null);
+  today = new Date();
   getSelectedCv(cv: Cv) {
     this.selectedCv.set(cv);
   }
