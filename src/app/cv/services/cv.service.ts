@@ -1,4 +1,4 @@
-import {  Injectable } from '@angular/core';
+import {  Injectable, signal } from '@angular/core';
 import { Cv } from '../model/cv';
 
 
@@ -7,9 +7,73 @@ import { Cv } from '../model/cv';
   providedIn: 'root',
 })
 export class CvService {
+  #cvs = signal([
+    new Cv(
+      1,
+      'Primaud',
+      'Alexandre',
+      'Dev',
+      '1234',
+      'rotating_card_profile2.png',
+      20
+    ),
+    new Cv(
+      2,
+      'Boudraa',
+      'Dalil',
+      'Dev',
+      '4444',
+      'rotating_card_profile3.png',
+      20
+    ),
+    new Cv(
+      3,
+      'Hmami',
+      'Jihane',
+      'Dev',
+      '55555',
+      'rotating_card_profile.png',
+      20
+    ),
+    new Cv(4, 'Colpron', 'Julien', 'Dev', '6666', '', 20),
+    new Cv(
+      5,
+      'Cote',
+      'Mathieu',
+      'Dev',
+      '777',
+      'rotating_card_profile3.png',
+      20
+    ),
+    new Cv(
+      6,
+      'Charpentier',
+      'Samuel',
+      'Dev',
+      '8888',
+      'rotating_card_profile2.png',
+      20
+    ),
+    new Cv(7, 'Jobin', 'Yan', 'Dev', '999', '        ', 20),
+    new Cv(
+      8,
+      'Laliberté-Beaupré',
+      'Robin ',
+      'Dev',
+      '1000',
+      'rotating_card_profile2.png',
+      20
+    ),
+  ]);
 
+  get cvs() {
+    return this.#cvs.asReadonly();
+  }
 
-
+  #selectedCv = signal<Cv | null>(null)
+  get selectedCv() {
+    return this.#selectedCv.asReadonly();
+  }
   /**
    * Retourne la liste des cvs
    * @returns signal Cv[]
@@ -38,5 +102,9 @@ export class CvService {
    */
   deleteCv(cv: Cv): boolean {
     return false;
+  }
+
+  selectCv(cv: Cv) {
+    this.#selectedCv.set(cv);
   }
 }

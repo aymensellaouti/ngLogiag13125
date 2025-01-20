@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { Cv } from '../model/cv';
+import { EmbaucheService } from '../services/embauche.service';
+import { CvItemComponent } from "../cv-item/cv-item.component";
 
 
 
@@ -7,8 +9,10 @@ import { Cv } from '../model/cv';
   selector: 'app-embauche',
   templateUrl: './embauche.component.html',
   styleUrls: ['./embauche.component.css'],
-  standalone: true
+  standalone: true,
+  imports: [CvItemComponent]
 })
 export class EmbaucheComponent {
-   public embauchees: Cv[] = [];
+  private embaucheService = inject(EmbaucheService);
+  public embauchees: Signal<Cv[]>  = this.embaucheService.getEmbauchees();
 }
