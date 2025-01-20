@@ -2,13 +2,15 @@ import { Component, computed, inject, Signal, signal, WritableSignal } from "@an
 import { Todo } from "../model/todo";
 import { TodoService } from "../service/todo.service";
 import { FormsModule } from "@angular/forms";
+import { CvComponent } from "../../cv/cv/cv.component";
 
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CvComponent],
+  providers: [TodoService]
 })
 export class TodoComponent {
   todo = signal(new Todo());

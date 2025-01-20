@@ -12,5 +12,4 @@ import { NgClass } from '@angular/common';
 })
 export class CvListComponent {
   cvs = input<Cv[]>([]);
-  forwardCv = output<Cv>();
 }

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Cv } from '../model/cv';
 import { CvListComponent } from "../cv-list/cv-list.component";
 import { CvCardComponent } from "../cv-card/cv-card.component";
@@ -6,11 +6,20 @@ import { CurrencyPipe, DatePipe, UpperCasePipe } from '@angular/common';
 import { BtcToUsdPipe } from '../../pipes/btc-to-usd.pipe';
 import { LoggerService } from '../../services/logger.service';
 import { SayHelloService } from '../../services/say-hello.service';
+import { TodoService } from '../../todo/service/todo.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cv',
   standalone: true,
-  imports: [CvListComponent, CvCardComponent, DatePipe, UpperCasePipe, BtcToUsdPipe, CurrencyPipe],
+  imports: [
+    CvListComponent,
+    CvCardComponent,
+    DatePipe,
+    UpperCasePipe,
+    BtcToUsdPipe,
+    CurrencyPipe,
+  ],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.css',
 })
@@ -43,15 +52,7 @@ export class CvComponent {
       'rotating_card_profile.png',
       20
     ),
-    new Cv(
-      4,
-      'Colpron',
-      'Julien',
-      'Dev',
-      '6666',
-      '',
-      20
-    ),
+    new Cv(4, 'Colpron', 'Julien', 'Dev', '6666', '', 20),
     new Cv(
       5,
       'Cote',
@@ -83,6 +84,8 @@ export class CvComponent {
   ]);
   selectedCv = signal<Cv | null>(null);
   today = new Date();
+  todoService = inject(TodoService);
+  toastr = inject(ToastrService);
   // helloService = new SayHelloService();
   constructor(
     private logger: LoggerService,
@@ -90,8 +93,6 @@ export class CvComponent {
   ) {
     this.logger.log('cc je suis le cvComponent');
     this.helloService.hello();
-  }
-  getSelectedCv(cv: Cv) {
-    this.selectedCv.set(cv);
+    this.toastr.info('Bienvenu dans notre CvTech :D')
   }
 }

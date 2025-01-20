@@ -11,8 +11,8 @@ import { DefaultImagePipe } from '../pipes/default-image.pipe';
 })
 export class CvItemComponent {
   cv = input.required<Cv>();
-  selectCv = output<Cv>();
+  // selectCv = output<Cv>();
   onSelectCv() {
-    this.selectCv.emit(this.cv());
+    // this.selectCv.emit(this.cv());
   }
 }

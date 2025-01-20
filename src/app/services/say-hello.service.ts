@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { LoggerService } from './logger.service';
 
 @Injectable({
-  providedIn: 'platform'
+  providedIn: 'root'
 })
 export class SayHelloService {
   private loggerService = inject(LoggerService)

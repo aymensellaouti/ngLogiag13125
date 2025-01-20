@@ -11,11 +11,12 @@ import { NgStyleComponent } from "./directives/ng-style/ng-style.component";
 import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
 import { FirstComponent } from "./components/first/first.component";
 import { TodoComponent } from "./todo/todo/todo.component";
+import { WeekTodoComponent } from "./todo/week-todo/week-todo.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TodoComponent],
+  imports: [TodoComponent, CvComponent, WeekTodoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
