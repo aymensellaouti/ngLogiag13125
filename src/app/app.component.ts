@@ -12,11 +12,12 @@ import { MiniWordComponent } from "./directives/mini-word/mini-word.component";
 import { FirstComponent } from "./components/first/first.component";
 import { TodoComponent } from "./todo/todo/todo.component";
 import { WeekTodoComponent } from "./todo/week-todo/week-todo.component";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TodoComponent, CvComponent, WeekTodoComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
