@@ -14,11 +14,12 @@ import { TodoComponent } from "./todo/todo/todo.component";
 import { WeekTodoComponent } from "./todo/week-todo/week-todo.component";
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar.component";
+import { TestFormComponent } from "./forms/test-form/test-form.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent],
+  imports: [RouterOutlet, NavbarComponent, TestFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

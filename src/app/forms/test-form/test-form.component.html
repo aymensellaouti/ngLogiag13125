@@ -1,0 +1,8 @@
+
+<form #myForm="ngForm">
+  name: <input required type="text" ngModel name="name" class="form-control">
+  age: <input pattern="\d{10}" placeholder="XXX-XXXXXXX" required type="text" ngModel name="age" class="form-control">
+  <button (click)="process(myForm)" class="btn btn-danger">
+    process
+  </button>
+</form>
