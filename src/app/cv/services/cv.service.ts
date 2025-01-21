@@ -93,8 +93,18 @@ export class CvService {
    * @param id
    * @returns Cv | null
    */
-  findCvById(id: number): Observable<Cv>  {
+  findCvById(id: number): Observable<Cv> {
     return this.http.get<Cv>(APP_API.cv + id);
+  }
+  /**
+   *
+   * Supprime un cv s'il le trouve
+   *
+   * @param id
+   * @returns { count: number }
+   */
+  deleteCvById(id: number): Observable<{ count: number }> {
+    return this.http.delete<{ count: number }>(APP_API.cv + id);
   }
   /**
    *
