@@ -1,6 +1,6 @@
 import {  inject, Injectable, signal } from '@angular/core';
 import { Cv } from '../model/cv';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { APP_API } from '../../config/app-api.config';
 import { Observable } from 'rxjs';
 
@@ -105,7 +105,9 @@ export class CvService {
    */
   deleteCvById(id: number): Observable<{ count: number }> {
     // Todo: Ajouter le param contenant le token
-    return this.http.delete<{ count: number }>(APP_API.cv + id, {});
+    //const params = new HttpParams().set('access_token', localStorage.getItem('token') ?? '')
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem('token') ?? '')
+    return this.http.delete<{ count: number }>(APP_API.cv + id, {headers});
   }
   /**
    *

@@ -6,6 +6,7 @@ import { APP_ROUTES } from "../../config/app-routes.config";
 import { catchError, EMPTY } from "rxjs";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { ToastrService } from "ngx-toastr";
+import { AuthService } from "../../auth/services/auth.service";
 
 
 @Component({
@@ -16,18 +17,17 @@ import { ToastrService } from "ngx-toastr";
 })
 export class DetailsCvComponent {
   acr = inject(ActivatedRoute);
+  authService = inject(AuthService);
   toastr = inject(ToastrService);
   private id = this.acr.snapshot.params['id'];
   cvService = inject(CvService);
   cv$ = this.cvService.findCvById(this.id).pipe(
-    catchError(
-      e => {
-        this.router.navigate([APP_ROUTES.cv]);
-        return EMPTY;
-      }
-    )
+    catchError((e) => {
+      this.router.navigate([APP_ROUTES.cv]);
+      return EMPTY;
+    })
   );
-  cv: Signal<Cv | null> = toSignal(this.cv$,{initialValue: null});
+  cv: Signal<Cv | null> = toSignal(this.cv$, { initialValue: null });
   router = inject(Router);
   constructor() {
     // this.cvService.findCvById(id).subscribe({
@@ -41,12 +41,12 @@ export class DetailsCvComponent {
     const cv = this.cv();
     if (cv) {
       this.cvService.deleteCvById(cv.id).subscribe({
-        next:(_) => {
+        next: (_) => {
           this.router.navigate([APP_ROUTES.cv]);
         },
         error: (e) => {
           this.toastr.error('Veuillez contacter l admin');
-        }
+        },
       });
     }
   }
