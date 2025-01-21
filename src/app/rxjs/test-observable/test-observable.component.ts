@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject, Signal, WritableSignal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-test-observable',
@@ -31,7 +31,15 @@ export class TestObservableComponent {
       console.log(val);
     });
     // setTimeout(() => {
-    this.observable$.subscribe({
+    this.observable$
+    .pipe(
+      // 5 4 3 2 1
+      map( (value) => value * 3),
+      // 15 12 9 6 3
+      filter( data => (!(data % 2)))
+      // 12 6
+    )
+    .subscribe({
       next: (mesdonnes) => {
         this.toastr.info('' + mesdonnes);
       },
