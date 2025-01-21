@@ -1,3 +1,4 @@
+<!-- @if (cvs$ | async; as cvs) { -->
 <div class="row">
   <div class="col">
     <div class="alert alert-warning">
@@ -5,10 +6,11 @@
       <p>{{ 1 | btcToUsd | currency }}</p>
       <p>{{ 1 | btcToUsd : false }}</p>
     </div>
-    <app-cv-list [cvs]="cvs()" />
+    <app-cv-list [cvs]="cvsSignal()" />
   </div>
   <div class="col">
     <app-cv-card [cv]="selectedCv()"/>
   </div>
 </div>
+<!-- } -->
 <app-embauche />
