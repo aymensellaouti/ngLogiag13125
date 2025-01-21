@@ -9,5 +9,6 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
+  // Gérer l'authentification du user
+  login() {}
 }

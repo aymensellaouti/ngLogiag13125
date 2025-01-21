@@ -104,7 +104,8 @@ export class CvService {
    * @returns { count: number }
    */
   deleteCvById(id: number): Observable<{ count: number }> {
-    return this.http.delete<{ count: number }>(APP_API.cv + id);
+    // Todo: Ajouter le param contenant le token
+    return this.http.delete<{ count: number }>(APP_API.cv + id, {});
   }
   /**
    *
